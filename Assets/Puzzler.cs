@@ -9,7 +9,7 @@ public class Puzzler : MonoBehaviour
     
     [SerializeField]
     int numberOfPieces = 0;
-[SerializeField]
+    [SerializeField]
     int winningCombination = 0;
     
     // Start is called before the first frame update

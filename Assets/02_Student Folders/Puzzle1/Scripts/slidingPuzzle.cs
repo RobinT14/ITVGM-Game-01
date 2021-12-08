@@ -6,9 +6,10 @@ public class slidingPuzzle : MonoBehaviour
 {
     public Texture2D image;
     public const int numberOfQuads = 4;
-    public int timesToShuffle = 20;
-    slidedImage noQuad;
+    public int timesToShuffle = 1;
+    slidedImage noQuad;    
     Vector2 startingQuad = new Vector2(numberOfQuads-1, numberOfQuads-1);
+
     slidedImage[,] numberedQuads;
 
     public static Vector2Int down;
@@ -24,10 +25,10 @@ int shuffleDecreaser;
     }
 
     void Update() {
-if(Input.GetKeyDown(KeyCode.Space)){
-Help();
-}
-}
+      if(Input.GetKeyDown(KeyCode.Space)){
+        Help();
+      }
+    }
 
     void PuzzleElements()
     {
@@ -56,11 +57,13 @@ Help();
 
     void changeQuadPosition(slidedImage quad) 
     {
+Debug.Log("in: " + quad.transform.position + noQuad.transform.position);
       if((quad.transform.position - noQuad.transform.position).sqrMagnitude == 1) 
       {
         Vector2 help = noQuad.transform.position;
         noQuad.transform.position = quad.transform.position;
         quad.transform.position = help;
+Debug.Log("hehe: " + quad.transform.position + noQuad.transform.position);
       }
     }
 
@@ -69,32 +72,38 @@ Debug.Log("in");
         shuffleDecreaser = timesToShuffle;
         while(shuffleDecreaser != 0) 
         {
-          Shuffler();
-          
+          Shuffler();          
         }
 }
 
     void Shuffler() {
-      Vector2Int left = new Vector2Int(-1,0);
-      Vector2Int right = new Vector2Int(1,0);
-      Vector2Int above = new Vector2Int(0,1);
-      Vector2Int below = new Vector2Int(0,-1);
-      Vector2Int[] neighbours = {left, right, above, below};
-      Vector2Int help = new Vector2Int((int)noQuad.transform.position.x, (int)noQuad.transform.position.y);
+      Vector2 left = new Vector2(-1,0);
+      Vector2 right = new Vector2(1,0);
+      Vector2 above = new Vector2(0,1);
+      Vector2 below = new Vector2(0,-1);
+      Vector2[] neighbours = {left, right, above, below}; //Is ok
+      Vector2 help = new Vector2(noQuad.transform.position.x, noQuad.transform.position.y); //Is ok with noQuad coords
 
       int random = Random.Range(0, neighbours.Length);
-//Debug.Log(neighbours.Length);
+
       for(int i = 0; i < neighbours.Length; i++)
       { 
-        Vector2Int neighbour = neighbours[(random+i)% neighbours.Length];
-        Vector2Int moveQuad = help + neighbour;
+        Vector2 neighbour = neighbours[(random+i)% neighbours.Length];
+
+Debug.Log("help: " + help);
+
+        Vector2 moveQuad = help + neighbour; //current empty quad + offset
+
+Debug.Log("in2: " + "(" + moveQuad.x + "," + moveQuad.y + ") "+ noQuad.transform.position);
+Debug.Log("moveQuad" + Mathf.Ceil(moveQuad.x) + "," + Mathf.Ceil(moveQuad.y));
+
+        int xCoord = (int)Mathf.Ceil(moveQuad.x);
+        int yCoord = (int)Mathf.Ceil(moveQuad.y);
 
         if(moveQuad.x >= 0 && moveQuad.x < numberOfQuads &&
            moveQuad.y >= 0 && moveQuad.y < numberOfQuads) {
           shuffleDecreaser--;
-Debug.Log("Before: "+ "(x,y)" + moveQuad.x + moveQuad.y);
-          changeQuadPosition(numberedQuads[moveQuad.x,moveQuad.y]);
-Debug.Log("After: " + "(x,y)" + moveQuad.x + moveQuad.y);
+          changeQuadPosition(numberedQuads[xCoord,yCoord]); //input 0,1,2,3 (positions)
           break;
         }
       }

@@ -70,6 +70,7 @@ Debug.Log(rand);
          if(transform.eulerAngles.z == winningCombination[0] && isCorrect == false) 
          {
            isCorrect = true;
+           help.correctPlacement();
          }
          else if(isCorrect == true) 
          {
