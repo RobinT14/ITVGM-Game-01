@@ -6,7 +6,7 @@ public class slidingPuzzle : MonoBehaviour
 {
     public Texture2D image;
     public const int numberOfQuads = 4;
-    public int timesToShuffle = 1;
+    public int timesToShuffle = 10;
     slidedImage noQuad;    
     Vector2 startingQuad = new Vector2(numberOfQuads-1, numberOfQuads-1);
 
