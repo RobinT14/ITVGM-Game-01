@@ -41,7 +41,7 @@ public class slidingPuzzle : MonoBehaviour
 			for (int i = 0; i < numberOfQuads; i++)
 			{
 				GameObject quad = GameObject.CreatePrimitive(PrimitiveType.Quad);
-				quad.transform.position = -Vector2.one * (numberOfQuads - 1) * 0.5f + new Vector2(i, j);
+				quad.transform.position = new Vector2(i, j);
 				quad.transform.parent = transform;
 
 				slidedImage clickedQuad = quad.AddComponent<slidedImage>();
@@ -59,21 +59,22 @@ public class slidingPuzzle : MonoBehaviour
 
 	void changeQuadPosition(slidedImage quad)
 	{
-		Debug.Log("in: " + quad.transform.position + noQuad.transform.position);
+		// Debug.Log("in: " + quad.transform.position + noQuad.transform.position);
 		if ((quad.transform.position - noQuad.transform.position).sqrMagnitude == 1)
 		{
+			Debug.Log("Bingo!");
 			Vector2 help = noQuad.transform.position;
 			noQuad.transform.position = quad.transform.position;
 			quad.transform.position = help;
-			Debug.Log("hehe: " + quad.transform.position + noQuad.transform.position);
+			// Debug.Log("hehe: " + quad.transform.position + noQuad.transform.position);
 		}
 	}
 
 	void Help()
 	{
-		Debug.Log("in");
+		Debug.Log("Shuffle");
 		shuffleDecreaser = timesToShuffle;
-		while (shuffleDecreaser != 0)
+		for (int i = 0; i < 5; i++)
 		{
 			Shuffler();
 		}
@@ -93,13 +94,9 @@ public class slidingPuzzle : MonoBehaviour
 		for (int i = 0; i < neighbours.Length; i++)
 		{
 			Vector2 neighbour = neighbours[(random + i) % neighbours.Length];
-
-			Debug.Log("help: " + help);
-
 			Vector2 moveQuad = help + neighbour; //current empty quad + offset
 
-			Debug.Log("in2: " + "(" + moveQuad.x + "," + moveQuad.y + ") " + noQuad.transform.position);
-			Debug.Log("moveQuad" + Mathf.Ceil(moveQuad.x) + "," + Mathf.Ceil(moveQuad.y));
+			Debug.Log("Wissel: " + "(" + moveQuad.x + "," + moveQuad.y + ") " + "MET=>" + noQuad.transform.position);
 
 			int xCoord = (int)Mathf.Ceil(moveQuad.x);
 			int yCoord = (int)Mathf.Ceil(moveQuad.y);
@@ -107,7 +104,8 @@ public class slidingPuzzle : MonoBehaviour
 			if (moveQuad.x >= 0 && moveQuad.x < numberOfQuads &&
 			   moveQuad.y >= 0 && moveQuad.y < numberOfQuads)
 			{
-				shuffleDecreaser--;
+				Debug.Log("Bingo! i=" + i);
+				// shuffleDecreaser--;
 				changeQuadPosition(numberedQuads[xCoord, yCoord]); //input 0,1,2,3 (positions)
 				break;
 			}
