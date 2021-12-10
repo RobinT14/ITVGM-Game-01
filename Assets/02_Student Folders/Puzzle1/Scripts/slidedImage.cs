@@ -6,9 +6,11 @@ public class slidedImage : MonoBehaviour
 {
 
 	public event System.Action<slidedImage> chosenElement;
+        public Vector2 startingPosition;
 
 	public void Init(Texture2D image)
 	{
+                this.startingPosition = startingPosition;
 		GetComponent<MeshRenderer>().material.mainTexture = image;
 	}
 
