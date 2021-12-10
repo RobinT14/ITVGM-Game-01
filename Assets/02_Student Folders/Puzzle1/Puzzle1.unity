@@ -191,7 +191,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3d939120dca6a4d45931b3ae624f69a3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  image: {fileID: 2800000, guid: 4e7ce1f005946ff4aab1a391f8b9484d, type: 3}
+  image: {fileID: 2800000, guid: f814bed806c66534c9f4b42fff67ba7f, type: 3}
+  timesToShuffle: 1
 --- !u!4 &192672790
 Transform:
   m_ObjectHideFlags: 0
@@ -700,6 +701,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   image: {fileID: 2800000, guid: 4e7ce1f005946ff4aab1a391f8b9484d, type: 3}
+  timesToShuffle: 1
 --- !u!1 &1188279650
 GameObject:
   m_ObjectHideFlags: 0
