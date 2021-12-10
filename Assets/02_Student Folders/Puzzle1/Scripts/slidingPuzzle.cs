@@ -16,14 +16,30 @@ public class slidingPuzzle : MonoBehaviour
 	public static Vector2Int up;
 	public static Vector2Int left;
 	public static Vector2Int right;
+Vector2 starter;
+
+public GameObject winMessage;
 
 	int shuffleDecreaser;
+
 	// Start is called before the first frame update
 	void Start()
 	{
+                
 		PuzzleElements();
+                Help();
+winMessage.SetActive(false);
 	}
 
+    // Update is called once per frame
+    void Update() {
+        if (Input.GetKeyDown("space"))
+        {
+            winMessage.SetActive(false);
+        }
+    }
+
+/*
 	void Update()
 	{
 		if (Input.GetKeyDown(KeyCode.Space))
@@ -31,6 +47,7 @@ public class slidingPuzzle : MonoBehaviour
 			Help();
 		}
 	}
+*/
 
 	void PuzzleElements()
 	{
@@ -43,7 +60,7 @@ public class slidingPuzzle : MonoBehaviour
 				GameObject quad = GameObject.CreatePrimitive(PrimitiveType.Quad);
 				quad.transform.position = new Vector2(i, j);
 				quad.transform.parent = transform;
-
+starter = quad.transform.position;
 				slidedImage clickedQuad = quad.AddComponent<slidedImage>();
 				clickedQuad.chosenElement += changeQuadPosition;
 				clickedQuad.Init(imageSlices[i, j]);
@@ -67,6 +84,7 @@ public class slidingPuzzle : MonoBehaviour
 			noQuad.transform.position = quad.transform.position;
 			quad.transform.position = help;
 			// Debug.Log("hehe: " + quad.transform.position + noQuad.transform.position);
+isSolved();
 		}
 	}
 
@@ -74,7 +92,7 @@ public class slidingPuzzle : MonoBehaviour
 	{
 		Debug.Log("Shuffle");
 		shuffleDecreaser = timesToShuffle;
-		for (int i = 0; i < 5; i++)
+		for (int i = 0; i < 10; i++)
 		{
 			Shuffler();
 		}
@@ -111,4 +129,25 @@ public class slidingPuzzle : MonoBehaviour
 			}
 		}
 	}
+
+        void isSolved()
+        {
+bool allMatchingQuads=false;
+            foreach(slidedImage quad in numberedQuads)
+            {
+                if(starter.x == quad.transform.position.x && starter.y == quad.transform.position.y) 
+                {
+                    Debug.Log("No winner");
+                    allMatchingQuads = true;
+                } 
+                else allMatchingQuads = false;               
+            }
+
+            if(allMatchingQuads) {
+                    Debug.Log("You are a winner!");
+                    winMessage.SetActive(true);
+            }
+             
+        }
+
 }
