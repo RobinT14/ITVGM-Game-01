@@ -79,7 +79,7 @@ starter = quad.transform.position;
 		// Debug.Log("in: " + quad.transform.position + noQuad.transform.position);
 		if ((quad.transform.position - noQuad.transform.position).sqrMagnitude == 1)
 		{
-			Debug.Log("Bingo!");
+			//Debug.Log("Bingo!");
 			Vector2 help = noQuad.transform.position;
 			noQuad.transform.position = quad.transform.position;
 			quad.transform.position = help;
@@ -90,7 +90,7 @@ isSolved();
 
 	void Help()
 	{
-		Debug.Log("Shuffle");
+		//Debug.Log("Shuffle");
 		shuffleDecreaser = timesToShuffle;
 		for (int i = 0; i < 10; i++)
 		{
@@ -114,7 +114,7 @@ isSolved();
 			Vector2 neighbour = neighbours[(random + i) % neighbours.Length];
 			Vector2 moveQuad = help + neighbour; //current empty quad + offset
 
-			Debug.Log("Wissel: " + "(" + moveQuad.x + "," + moveQuad.y + ") " + "MET=>" + noQuad.transform.position);
+			//Debug.Log("Wissel: " + "(" + moveQuad.x + "," + moveQuad.y + ") " + "MET=>" + noQuad.transform.position);
 
 			int xCoord = (int)Mathf.Ceil(moveQuad.x);
 			int yCoord = (int)Mathf.Ceil(moveQuad.y);
@@ -122,7 +122,7 @@ isSolved();
 			if (moveQuad.x >= 0 && moveQuad.x < numberOfQuads &&
 			   moveQuad.y >= 0 && moveQuad.y < numberOfQuads)
 			{
-				Debug.Log("Bingo! i=" + i);
+				//Debug.Log("Bingo! i=" + i);
 				// shuffleDecreaser--;
 				changeQuadPosition(numberedQuads[xCoord, yCoord]); //input 0,1,2,3 (positions)
 				break;
