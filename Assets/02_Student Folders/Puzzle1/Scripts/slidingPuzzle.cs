@@ -16,7 +16,7 @@ public class slidingPuzzle : MonoBehaviour
 	public static Vector2Int up;
 	public static Vector2Int left;
 	public static Vector2Int right;
-Vector2 starter;
+Vector3[,] starter;
 
 public GameObject winMessage;
 
@@ -53,6 +53,8 @@ winMessage.SetActive(false);
 	{
 		Texture2D[,] imageSlices = slidedImage.SliceImage(image, numberOfQuads);
 		numberedQuads = new slidedImage[numberOfQuads, numberOfQuads];
+
+starter = new Vector3[numberOfQuads,numberOfQuads];
 		for (int j = 0; j < numberOfQuads; j++)
 		{
 			for (int i = 0; i < numberOfQuads; i++)
@@ -60,11 +62,15 @@ winMessage.SetActive(false);
 				GameObject quad = GameObject.CreatePrimitive(PrimitiveType.Quad);
 				quad.transform.position = new Vector2(i, j);
 				quad.transform.parent = transform;
-starter = quad.transform.position;
 				slidedImage clickedQuad = quad.AddComponent<slidedImage>();
 				clickedQuad.chosenElement += changeQuadPosition;
-				clickedQuad.Init(imageSlices[i, j]);
+Vector2Int position = new Vector2Int(i,j);
+				clickedQuad.Init(position, imageSlices[i, j]);
 				numberedQuads[i, j] = clickedQuad;
+//Debug.Log("nQ:" + numberedQuads[i,j]);
+//Debug.Log("bla: "+ clickedQuad.startingPosition);
+Debug.Log("logger: " + numberedQuads[i, j].transform.position);
+starter[i,j] = numberedQuads[i, j].transform.position;
 				if (i == startingQuad.x && j == startingQuad.y)
 				{
 					quad.SetActive(false);
@@ -132,22 +138,19 @@ isSolved();
 
         void isSolved()
         {
-bool allMatchingQuads=false;
+            //bool allMatchingQuads=false;
+
             foreach(slidedImage quad in numberedQuads)
             {
-                if(starter.x == quad.transform.position.x && starter.y == quad.transform.position.y) 
+                if(!(quad.startingPosition.x == quad.transform.position.x && quad.startingPosition.y == quad.transform.position.y))
                 {
-                    Debug.Log("No winner");
-                    allMatchingQuads = true;
-                } 
-                else allMatchingQuads = false;               
+                    //Debug.Log("No winner");
+                    return;                   
+                }
+
             }
 
-            if(allMatchingQuads) {
-                    Debug.Log("You are a winner!");
-                    winMessage.SetActive(true);
-            }
-             
+            Debug.Log("You are a winner!");
+            winMessage.SetActive(true);           
         }
-
 }

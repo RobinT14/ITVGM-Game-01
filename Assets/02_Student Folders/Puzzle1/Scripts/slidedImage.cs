@@ -6,9 +6,9 @@ public class slidedImage : MonoBehaviour
 {
 
 	public event System.Action<slidedImage> chosenElement;
-        public Vector2 startingPosition;
+        public Vector2Int startingPosition;
 
-	public void Init(Texture2D image)
+	public void Init(Vector2Int startingPosition, Texture2D image)
 	{
                 this.startingPosition = startingPosition;
 		GetComponent<MeshRenderer>().material.mainTexture = image;
@@ -24,7 +24,6 @@ public class slidedImage : MonoBehaviour
 	{
 		int imageSize = Mathf.Min(image.width, image.height);
 		int quadSize = imageSize / numberOfQuads;
-
 		Texture2D[,] quads = new Texture2D[numberOfQuads, numberOfQuads];
 		for (int j = 0; j < numberOfQuads; j++)
 		{
@@ -35,7 +34,7 @@ public class slidedImage : MonoBehaviour
 				quad.SetPixels(image.GetPixels(i * quadSize, j * quadSize, quadSize, quadSize));
 				quad.Apply();
 				quads[i, j] = quad;
-			}
+		        }
 		}
 		return quads;
 	}
