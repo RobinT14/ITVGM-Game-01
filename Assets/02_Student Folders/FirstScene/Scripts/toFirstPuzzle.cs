@@ -7,7 +7,7 @@ public class toFirstPuzzle : MonoBehaviour
 {
     void OnTriggerEnter(Collider other)
     {
-        Debug.Log("switch!");
-        SceneManager.LoadScene(1);
+        // Debug.Log("switch!");
+        SceneManager.LoadScene("Puzzle1");
     }
 }
