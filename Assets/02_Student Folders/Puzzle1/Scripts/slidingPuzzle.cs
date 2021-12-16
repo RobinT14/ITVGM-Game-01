@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class slidingPuzzle : MonoBehaviour
 {
@@ -151,6 +152,32 @@ isSolved();
             }
 
             Debug.Log("You are a winner!");
-            winMessage.SetActive(true);           
+            winMessage.SetActive(true); 
+ShowImage();
         }
+
+
+        void ShowImage()
+	{
+		Texture2D[,] imageSlices = slidedImage.SliceImage(image, numberOfQuads);
+		numberedQuads = new slidedImage[numberOfQuads, numberOfQuads];
+
+starter = new Vector3[numberOfQuads,numberOfQuads];
+		for (int j = 0; j < numberOfQuads; j++)
+		{
+			for (int i = 0; i < numberOfQuads; i++)
+			{
+				GameObject quad = GameObject.CreatePrimitive(PrimitiveType.Quad);
+				quad.transform.position = new Vector2(i, j);
+				quad.transform.parent = transform;
+				slidedImage clickedQuad = quad.AddComponent<slidedImage>();
+				clickedQuad.chosenElement += changeQuadPosition;
+Vector2Int position = new Vector2Int(i,j);
+				clickedQuad.Init(position, imageSlices[i, j]);
+				numberedQuads[i, j] = clickedQuad;
+starter[i,j] = numberedQuads[i, j].transform.position;
+			}
+		}
+	}
+
 }

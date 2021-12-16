@@ -50,10 +50,11 @@ Debug.Log(rand);
     // Update is called once per frame
     private void OnMouseDown()
     {
-       transform.Rotate(new Vector3(0,0,90)); 
-
+       transform.Rotate(new Vector3(0,0,90f)); 
+Debug.Log(possibilities);
        if(possibilities > 1) 
        {
+Debug.Log("t" + transform.eulerAngles.z);
          if((transform.eulerAngles.z == winningCombination[0] || transform.eulerAngles.z == winningCombination[1]) && isCorrect == false) 
          {
            isCorrect = true;
@@ -67,7 +68,8 @@ Debug.Log(rand);
        }
        else 
        {
-         if(transform.eulerAngles.z == winningCombination[0] && isCorrect == false) 
+Debug.Log("t2" + transform.eulerAngles.z + "w: "+ winningCombination[0]);
+         if((int)transform.eulerAngles.z == winningCombination[0] && isCorrect == false) 
          {
            isCorrect = true;
            help.correctPlacement();

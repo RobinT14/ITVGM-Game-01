@@ -41,7 +41,7 @@ public class Puzzler : MonoBehaviour
     public void correctPlacement()
     {
        winningCombination += 1;
-
+Debug.Log("w"+ winningCombination);
        if(winningCombination == numberOfPieces) {
          Debug.Log("You are a winner!");
          winMessage.SetActive(true);
