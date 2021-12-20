@@ -29,7 +29,7 @@ Debug.Log(rand);
 
        if(possibilities > 1) 
        {
-         if(transform.eulerAngles.z == winningCombination[0] || transform.eulerAngles.z == winningCombination[1]) 
+         if((int)transform.eulerAngles.z == winningCombination[0] || transform.eulerAngles.z == winningCombination[1]) 
          {
            isCorrect = true;
            help.correctPlacement();
@@ -37,7 +37,7 @@ Debug.Log(rand);
        }
        else 
        {
-         if(transform.eulerAngles.z == winningCombination[0]) 
+         if((int)transform.eulerAngles.z == winningCombination[0]) 
          {
            isCorrect = true;
            help.correctPlacement();
@@ -55,7 +55,7 @@ Debug.Log(possibilities);
        if(possibilities > 1) 
        {
 Debug.Log("t" + transform.eulerAngles.z);
-         if((transform.eulerAngles.z == winningCombination[0] || transform.eulerAngles.z == winningCombination[1]) && isCorrect == false) 
+         if(((int)transform.eulerAngles.z == winningCombination[0] || transform.eulerAngles.z == winningCombination[1]) && isCorrect == false) 
          {
            isCorrect = true;
            help.correctPlacement();
