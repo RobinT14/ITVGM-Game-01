@@ -5,6 +5,8 @@ using UnityEngine;
 public class PlayerPositionManager : MonoBehaviour
 {
     public Transform Player;
+
+    private Vector3 positionVector;
     public DontDestroy SavedPosition;
     GameObject PositionPlayer;
     // Start is called before the first frame update
@@ -14,8 +16,9 @@ public class PlayerPositionManager : MonoBehaviour
         SavedPosition = PositionPlayer.GetComponent<DontDestroy>();
         //Debug.Log("GetComponent is gedaan");
         //player wordt verplaatst naar de plek dat gesaved is
-        //Player.position = SavedPosition.PlayerPosition;
-        Player.position = new Vector3(-22.12f, -1.22f, 28.61f);
+        positionVector = SavedPosition.PlayerPosition - new Vector3 (0,0,1);
+        Player.position = positionVector;
+        //Player.position = new Vector3(-22.12f, -1.22f, 28.61f);
         //Debug.Log("Position player");
     }
 

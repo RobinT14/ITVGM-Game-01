@@ -22,9 +22,14 @@ public class DontDestroy : MonoBehaviour
             instance = this;
         }
     }
+
+    
     public void SavePosition(){
+        //slaat position op 
         PlayerPosition = Player.position;
-        Player.position = PlayerPosition;
+
+        //Player.position = PlayerPosition;
+        //PlayerPosition = new Vector3(-22.12f, -1.22f, 28.61f);
     }
 
     void Awake(){
