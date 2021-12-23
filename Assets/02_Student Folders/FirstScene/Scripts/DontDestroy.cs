@@ -10,9 +10,9 @@ public class DontDestroy : MonoBehaviour
     //starting position
     public Vector3 PlayerPosition = new Vector3(-3.73f, -6.24f, 20.36f);
     // public Vector3 PlayerPosition = new Vector3(-12.44f, -11.25f, 15.35f);
-    //show trigger objects
+    
+    //Trigger Object 1
     public bool ShowTriggerobj1 = true;
-
     public static DontDestroy instance;
     void Start(){
         if (instance != null){
@@ -21,6 +21,7 @@ public class DontDestroy : MonoBehaviour
         else {
             instance = this;
         }
+        
     }
 
     

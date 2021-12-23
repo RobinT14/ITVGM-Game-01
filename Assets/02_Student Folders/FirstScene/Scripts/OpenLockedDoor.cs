@@ -22,18 +22,30 @@ public class OpenLockedDoor : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (!isClosed){
+        //deur gaat open na unlock
+        if (!isClosed && Door.position.z <= 31.5f){
             Door.Translate(Vector3.forward * Time.deltaTime * speed);
         }
+        // else if (!isClosed && Door.position.z >= 31.5f){
+
+        // }
     }
 
     void OnTriggerEnter (Collider other)
     {
+        //als speler sleutel heeft kan die door unlocken
         if (!locked)
         {
-            isClosed = false;
+            UnlockDoor();
             // timer = timerlength;
             // opening = true;
         }
     }
+
+    void UnlockDoor(){
+        isClosed = false;
+        Debug.Log("Door should be opening now");
+        //yield return new WaitForSeconds(8.4f);
+    }
+
 }
