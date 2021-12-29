@@ -154,9 +154,10 @@ isSolved();
 
             Debug.Log("You are a winner!");
             //winMessage.SetActive(true); 
+ShowImage();
 			//statische beelden
 			SceneManager.LoadScene("Scene1");
-ShowImage();
+
         }
 
 
