@@ -153,7 +153,7 @@ isSolved();
             }
 
             Debug.Log("You are a winner!");
-            winMessage.SetActive(true); 
+            //winMessage.SetActive(true); 
 			//statische beelden
 			SceneManager.LoadScene("Scene1");
 ShowImage();

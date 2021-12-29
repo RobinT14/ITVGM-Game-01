@@ -44,7 +44,7 @@ public class Puzzler : MonoBehaviour
 Debug.Log("w"+ winningCombination);
        if(winningCombination == numberOfPieces) {
          Debug.Log("You are a winner!");
-         winMessage.SetActive(true);
+         //winMessage.SetActive(true);
 
        }
     }
