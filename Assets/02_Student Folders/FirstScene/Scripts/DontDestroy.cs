@@ -5,14 +5,16 @@ using UnityEngine.SceneManagement;
 
 public class DontDestroy : MonoBehaviour
 {   
+    public GameObject PlayerObject;
     public Transform Player;
 
     //starting position
     public Vector3 PlayerPosition = new Vector3(-3.73f, -6.24f, 20.36f);
     // public Vector3 PlayerPosition = new Vector3(-12.44f, -11.25f, 15.35f);
     
-    //Trigger Object 1
+    //Trigger Objects
     public bool ShowTriggerobj1 = true;
+    public bool ShowTriggerobj2 = true;
     public static DontDestroy instance;
     void Start(){
         if (instance != null){
@@ -28,7 +30,6 @@ public class DontDestroy : MonoBehaviour
     public void SavePosition(){
         //slaat position op 
         PlayerPosition = Player.position;
-
         //Player.position = PlayerPosition;
         //PlayerPosition = new Vector3(-22.12f, -1.22f, 28.61f);
     }

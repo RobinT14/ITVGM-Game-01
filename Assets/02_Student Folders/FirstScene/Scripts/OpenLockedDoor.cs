@@ -6,29 +6,37 @@ public class OpenLockedDoor : MonoBehaviour
 {
     public bool locked = true;
     public bool isClosed = true;
+
+    //dont destroy info zodat deur open blijft staan na memories
+    public GameObject PlayerPositionObject;
+    DontDestroy dontdestroyinfo;
     public Transform Door;
     public float speed = 2f;
     public Collider triggerZone;
 
-    Vector3 door1DefaultPos = new Vector3(0, 0, 0.3f);
+    Vector3 OpenPosition = new Vector3(-1.84f, -0.96f, 31.5f);
     //Vector3 door2DefaultPos = new Vector3(1.9f, 0, 0.3f);
 
     // Start is called before the first frame update
     void Start()
     {
-        
+        PlayerPositionObject = GameObject.Find("PlayerPosition");
+        dontdestroyinfo = PlayerPositionObject.GetComponent<DontDestroy>();
     }
 
     // Update is called once per frame
     void Update()
     {
+        //is puzzle2 net opgelost? Dan moet de deur nog open staan
+        if (!dontdestroyinfo.ShowTriggerobj2 && isClosed){
+            Door.position = OpenPosition;
+            isClosed = false;
+        }
         //deur gaat open na unlock
-        if (!isClosed && Door.position.z <= 31.5f){
+        else if (!isClosed && Door.position.z <= 31.5f && dontdestroyinfo.ShowTriggerobj2){
             Door.Translate(Vector3.forward * Time.deltaTime * speed);
         }
-        // else if (!isClosed && Door.position.z >= 31.5f){
 
-        // }
     }
 
     void OnTriggerEnter (Collider other)
@@ -37,8 +45,6 @@ public class OpenLockedDoor : MonoBehaviour
         if (!locked)
         {
             UnlockDoor();
-            // timer = timerlength;
-            // opening = true;
         }
     }
 

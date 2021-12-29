@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using UnityEngine.SceneManagement;
 public class Puzzler : MonoBehaviour
 {
     public GameObject board;
@@ -45,6 +45,7 @@ Debug.Log("w"+ winningCombination);
        if(winningCombination == numberOfPieces) {
          Debug.Log("You are a winner!");
          //winMessage.SetActive(true);
+         SceneManager.LoadScene("Scene1");
 
        }
     }
