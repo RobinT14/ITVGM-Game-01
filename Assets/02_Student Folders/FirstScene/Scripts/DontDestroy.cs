@@ -5,7 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class DontDestroy : MonoBehaviour
 {   
-    public GameObject PlayerObject;
+    //public GameObject PlayerObject;
     public Transform Player;
 
     //starting position

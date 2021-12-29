@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.6263538, g: 0.3411424, b: 0.35542285, a: 1}
+  m_IndirectSpecularColor: {r: 0.6263263, g: 0.34113592, b: 0.3555795, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1407,7 +1407,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh40640
+  m_Name: pb_Mesh382278
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -12980,7 +12980,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1242085799}
   m_LocalRotation: {x: -0, y: 0.7071068, z: -0, w: 0.7071068}
-  m_LocalPosition: {x: -46.3, y: -2.9873898, z: -13}
+  m_LocalPosition: {x: -46.3, y: -2.9873898, z: -12.87}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1540625430}
@@ -16017,13 +16017,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1516330202}
-  m_LocalRotation: {x: 0.6893687, y: 0.15738733, z: -0.15738733, w: 0.6893687}
-  m_LocalPosition: {x: 34, y: 0.1, z: 0.65}
+  m_LocalRotation: {x: 0.6361998, y: 0.3086258, z: -0.3086258, w: 0.6361998}
+  m_LocalPosition: {x: 35.08, y: 0.1, z: 2.9099998}
   m_LocalScale: {x: 0.2, y: 0.2, z: 0.2}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 8
-  m_LocalEulerAnglesHint: {x: 90, y: 0, z: -25.721}
+  m_LocalEulerAnglesHint: {x: 90, y: 0, z: -51.757}
 --- !u!1001 &1519397795
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -21414,6 +21414,31 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 298744117520805562, guid: 761cdc9e4e883334cbdcea062d0befa7,
+        type: 3}
+      propertyPath: startingWeapons.Array.size
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 814417836257332542, guid: 761cdc9e4e883334cbdcea062d0befa7,
+        type: 3}
+      propertyPath: jumpForce
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 814417836257332542, guid: 761cdc9e4e883334cbdcea062d0befa7,
+        type: 3}
+      propertyPath: maxSpeedInAir
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 814417836257332542, guid: 761cdc9e4e883334cbdcea062d0befa7,
+        type: 3}
+      propertyPath: maxSpeedOnGround
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 814417836257332542, guid: 761cdc9e4e883334cbdcea062d0befa7,
+        type: 3}
+      propertyPath: cameraHeightRatio
+      value: 1.2
+      objectReference: {fileID: 0}
     - target: {fileID: 6145509692674227223, guid: 761cdc9e4e883334cbdcea062d0befa7,
         type: 3}
       propertyPath: lookSensitivity

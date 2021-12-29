@@ -25,11 +25,15 @@ public class PlayerPositionManager : MonoBehaviour
             positionVector = SavedPosition.PlayerPosition - new Vector3 (0,0,1);
             Player.position = positionVector;
             FloorKey.SetActive(true);
+            //na een memory moet de dontdestroy opnieuw gekoppeld worden aan de player
+            SavedPosition.Player = Player;
         //als puzzle 2 is opgelost
         }else if (!SavedPosition.ShowTriggerobj1 && !SavedPosition.ShowTriggerobj2){
             positionVector = SavedPosition.PlayerPosition - new Vector3 (0,0,1);
             Player.position = positionVector;
             OpeningTool.SetActive(true);
+            //na een memory moet de dontdestroy opnieuw gekoppeld worden aan de player
+            SavedPosition.Player = Player;
         }
         //Player.position = new Vector3(-22.12f, -1.22f, 28.61f);
         //Debug.Log("Position player");
