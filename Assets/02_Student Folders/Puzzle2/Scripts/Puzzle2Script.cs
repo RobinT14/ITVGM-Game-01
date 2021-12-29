@@ -69,6 +69,7 @@ Debug.Log("t" + transform.eulerAngles.z);
        else 
        {
 Debug.Log("t2" + transform.eulerAngles.z + "w: "+ winningCombination[0]);
+Debug.Log("t2: " + (int)transform.eulerAngles.z + "w: "+ winningCombination[0]);
          if((int)transform.eulerAngles.z == winningCombination[0] && isCorrect == false) 
          {
            isCorrect = true;
