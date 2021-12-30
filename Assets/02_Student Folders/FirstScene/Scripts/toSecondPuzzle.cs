@@ -37,6 +37,7 @@ public class toSecondPuzzle : MonoBehaviour
         // Debug.Log("switch!");
             dontdestroyinfo.ShowTriggerobj2 = false;
             dontdestroyinfo.SavePosition();
+            SceneManager.LoadScene("Puzzle2");
             // FadeToLevel(); //levelToLoad
         }
     }
