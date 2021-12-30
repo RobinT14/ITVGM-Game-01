@@ -8,9 +8,9 @@ public class toSecondPuzzle : MonoBehaviour
     private bool startgame = true;
     GameObject PositionPlayer;
     public DontDestroy dontdestroyinfo;
-    public Animator animator;
+    // public Animator animator;
     // public string levelToLoad = null;
-    public string chosenAnimation = null;
+    // public string chosenAnimation = null;
 
     void Start(){
         
@@ -37,16 +37,16 @@ public class toSecondPuzzle : MonoBehaviour
         // Debug.Log("switch!");
             dontdestroyinfo.ShowTriggerobj2 = false;
             dontdestroyinfo.SavePosition();
-            FadeToLevel(); //levelToLoad
+            // FadeToLevel(); //levelToLoad
         }
     }
 
-    public void FadeToLevel() // string levelName
-    {
-        // levelToLoad = levelName;
-        animator.SetTrigger(chosenAnimation);
-        // OnFadeComplete();
-    }
+    //public void FadeToLevel() // string levelName
+    //{
+    //    // levelToLoad = levelName;
+    //    animator.SetTrigger(chosenAnimation);
+    //    // OnFadeComplete();
+    //}
 
     //public void OnFadeComplete()
     //{
