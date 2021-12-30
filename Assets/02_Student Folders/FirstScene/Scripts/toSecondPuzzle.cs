@@ -8,8 +8,11 @@ public class toSecondPuzzle : MonoBehaviour
     private bool startgame = true;
     GameObject PositionPlayer;
     public DontDestroy dontdestroyinfo;
+    public Animator animator;
+    // public string levelToLoad = null;
+    public string chosenAnimation = null;
 
-    void start(){
+    void Start(){
         
     }
 
@@ -29,11 +32,25 @@ public class toSecondPuzzle : MonoBehaviour
     void OnTriggerEnter(Collider other)
     {   
         
-        if (dontdestroyinfo.ShowTriggerobj2){
+        if (dontdestroyinfo.ShowTriggerobj2)
+        {
         // Debug.Log("switch!");
             dontdestroyinfo.ShowTriggerobj2 = false;
             dontdestroyinfo.SavePosition();
-            SceneManager.LoadScene("Puzzle2");
+            FadeToLevel(); //levelToLoad
         }
     }
+
+    public void FadeToLevel() // string levelName
+    {
+        // levelToLoad = levelName;
+        animator.SetTrigger(chosenAnimation);
+        // OnFadeComplete();
+    }
+
+    //public void OnFadeComplete()
+    //{
+    //    SceneManager.LoadScene(levelToLoad);
+    //}
+
 }
