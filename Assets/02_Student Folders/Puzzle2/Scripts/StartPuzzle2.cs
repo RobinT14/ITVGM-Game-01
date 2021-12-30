@@ -6,6 +6,7 @@ using UnityEngine.UI;
 public class StartPuzzle2 : MonoBehaviour
 {
 
+    public Collider trigger;
     public Image image;    
 //    public GameObject object;
 
@@ -24,7 +25,8 @@ public class StartPuzzle2 : MonoBehaviour
         }*/
     }
 
-    void OnMouseDown() 
+//    void OnMouseDown() 
+void OnTriggerEnter(Collider trigger)
     {
 /*
      Color temp = image.color;
