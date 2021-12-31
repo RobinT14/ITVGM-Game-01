@@ -5,16 +5,17 @@ using UnityEngine.SceneManagement;
 
 public class toSecondPuzzle : MonoBehaviour
 {
+    // transportation location
     private bool startgame = true;
     GameObject PositionPlayer;
     public DontDestroy dontdestroyinfo;
-    // public Animator animator;
-    // public string levelToLoad = null;
-    // public string chosenAnimation = null;
 
-    void Start(){
-        
-    }
+    // animation variables
+    public Animator animator;
+    // public string levelToLoad = null;
+    public string chosenAnimation = null;
+
+    void Start(){}
 
     void Update(){
         if(startgame)
@@ -36,17 +37,17 @@ public class toSecondPuzzle : MonoBehaviour
         {
             dontdestroyinfo.ShowTriggerobj2 = false;
             dontdestroyinfo.SavePosition();
-            SceneManager.LoadScene("Puzzle2");
-            // FadeToLevel(); //levelToLoad
+            FadeToLevel(); //levelToLoad
         }
     }
 
-    //public void FadeToLevel() // string levelName
-    //{
-    //    // levelToLoad = levelName;
-    //    animator.SetTrigger(chosenAnimation);
-    //    // OnFadeComplete();
-    //}
+    public void FadeToLevel() // string levelName
+    {
+        // levelToLoad = levelName;
+        animator.SetTrigger(chosenAnimation);
+        Debug.Log("Activated animation!");
+        // OnFadeComplete();
+    }
 
     //public void OnFadeComplete()
     //{

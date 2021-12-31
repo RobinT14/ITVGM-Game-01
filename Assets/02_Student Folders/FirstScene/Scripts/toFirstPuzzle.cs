@@ -15,10 +15,7 @@ public class toFirstPuzzle : MonoBehaviour
     // public string levelToLoad = null;
     public string chosenAnimation = null;
 
-    void Start()
-    {
-        // source = GetComponent<AudioSource>();
-    }
+    void Start(){}
 
     void Update()
     {
@@ -38,9 +35,7 @@ public class toFirstPuzzle : MonoBehaviour
     {
         if (dontdestroyinfo.ShowTriggerobj1)
         {
-            
             dontdestroyinfo.SavePosition();
-
             FadeToLevel(); //levelToLoad
         }
     }
