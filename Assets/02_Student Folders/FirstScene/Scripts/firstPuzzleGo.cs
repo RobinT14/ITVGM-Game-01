@@ -8,7 +8,13 @@ public class firstPuzzleGo : MonoBehaviour
     // public GameObject reachpoint1 = null;
     //myObject.GetComponent<MyScript>().MyFunction();
     public AudioSource source = null;
+     GameObject PositionPlayer;
+    public DontDestroy dontdestroyinfo;
 
+    void start(){
+        PositionPlayer = GameObject.Find("PlayerPosition");
+        dontdestroyinfo = PositionPlayer.GetComponent<DontDestroy>();
+    }
 
     public void AudioStart()
     {
@@ -18,8 +24,11 @@ public class firstPuzzleGo : MonoBehaviour
 
     public void OnFadeComplete()
     {
-        SceneManager.LoadScene("Puzzle1");
-
+        if (dontdestroyinfo.ShowTriggerobj1)
+        {
+            dontdestroyinfo.ShowTriggerobj1 = false;
+            SceneManager.LoadScene("Puzzle1");
+        }
         // reachpoint1.GetComponent<toFirstPuzzle>().OnFadeComplete();
         // Destroy(reachpoint1);
     }

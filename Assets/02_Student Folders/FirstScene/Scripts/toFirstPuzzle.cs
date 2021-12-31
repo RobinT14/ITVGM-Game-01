@@ -38,7 +38,7 @@ public class toFirstPuzzle : MonoBehaviour
     {
         if (dontdestroyinfo.ShowTriggerobj1)
         {
-            dontdestroyinfo.ShowTriggerobj1 = false;
+            
             dontdestroyinfo.SavePosition();
 
             FadeToLevel(); //levelToLoad
