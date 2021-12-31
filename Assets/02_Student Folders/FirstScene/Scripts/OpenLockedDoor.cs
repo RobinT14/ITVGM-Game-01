@@ -12,7 +12,6 @@ public class OpenLockedDoor : MonoBehaviour
     DontDestroy dontdestroyinfo;
 
     //voor audio en objective message
-    public bool DoorNoticed = false;
     public GameObject ObjectiveMessage;
     public Transform Door;
     public float speed = 2f;
@@ -26,6 +25,12 @@ public class OpenLockedDoor : MonoBehaviour
     {
         PlayerPositionObject = GameObject.Find("PlayerPosition");
         dontdestroyinfo = PlayerPositionObject.GetComponent<DontDestroy>();
+
+        //als je message had geactiveerd voor de memory
+        //dan moet message weer tezien zijn na de mamory
+        if (dontdestroyinfo.DoorNoticed && dontdestroyinfo.ShowKeyMessage){
+            ObjectiveMessage.SetActive(true);
+        }
     }
 
     // Update is called once per frame
@@ -51,10 +56,10 @@ public class OpenLockedDoor : MonoBehaviour
             UnlockDoor();
         }
         //als de speler geen sleutel heeft moet message komen dat die sleutel moet zoeken
-        else if (locked && !DoorNoticed && dontdestroyinfo.ShowKeyMessage){
+        else if (locked && !dontdestroyinfo.DoorNoticed && dontdestroyinfo.ShowKeyMessage){
             //insert audio fragment bryan eens in de zoveel keer dat die de trigger tegen komt
             ObjectiveMessage.SetActive(true);
-            DoorNoticed = true;
+            dontdestroyinfo.DoorNoticed = true;
         }
     }
 

@@ -18,7 +18,9 @@ public class DontDestroy : MonoBehaviour
 
     //messages
     public bool ShowKeyMessage = true;
+    public bool DoorNoticed = false;
     public bool ShowToolMessage = true;
+    public bool VentNoticed = false;
     
     public static DontDestroy instance;
     void Start(){
