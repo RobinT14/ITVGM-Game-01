@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class toCredits : MonoBehaviour
 {
@@ -14,5 +15,10 @@ public class toCredits : MonoBehaviour
     void Update()
     {
         
+    }
+
+    public void OnTriggerEnter(Collider other)
+    {
+        SceneManager.LoadScene("Credits");
     }
 }
