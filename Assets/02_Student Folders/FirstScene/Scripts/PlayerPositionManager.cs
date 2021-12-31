@@ -13,6 +13,9 @@ public class PlayerPositionManager : MonoBehaviour
     //Trigger Objects
     public GameObject FloorKey;
     public GameObject OpeningTool;
+
+    //Voor memory objective
+    public ObjectiveMemory MemoryObjectiveMessage;
     void Start()
     {
         PositionPlayer = GameObject.Find("PlayerPosition");
@@ -28,12 +31,16 @@ public class PlayerPositionManager : MonoBehaviour
             //na een memory moet de dontdestroy opnieuw gekoppeld worden aan de player
             SavedPosition.Player = Player;
         //als puzzle 2 is opgelost
-        }else if (!SavedPosition.ShowTriggerobj1 && !SavedPosition.ShowTriggerobj2){
+        }
+        if (!SavedPosition.ShowTriggerobj1 && !SavedPosition.ShowTriggerobj2){
+            Debug.Log("Puzzle 2 solved");
             positionVector = SavedPosition.PlayerPosition - new Vector3 (0,0,1);
             Player.position = positionVector;
             OpeningTool.SetActive(true);
             //na een memory moet de dontdestroy opnieuw gekoppeld worden aan de player
             SavedPosition.Player = Player;
+            //Memory objective is gecomplete
+            MemoryObjectiveMessage.ObjectiveCompletion();
         }
         //Player.position = new Vector3(-22.12f, -1.22f, 28.61f);
         //Debug.Log("Position player");
