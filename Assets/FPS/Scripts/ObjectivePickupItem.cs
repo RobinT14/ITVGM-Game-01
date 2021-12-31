@@ -15,10 +15,10 @@ public class ObjectivePickupItem : MonoBehaviour
         DebugUtility.HandleErrorIfNullGetComponent<Pickup, ObjectivePickupItem>(m_Pickup, this, gameObject);
 
         // subscribe to the onPick action on the Pickup component
-        m_Pickup.onPick += OnPickup;
+        // m_Pickup.onPick += OnPickup;
     }
 
-    void OnPickup(PlayerCharacterController player)
+    public void ObjectiveCompletion()
     {
         if (m_Objective.isCompleted)
             return;

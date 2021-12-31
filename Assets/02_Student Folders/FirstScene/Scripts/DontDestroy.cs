@@ -15,6 +15,11 @@ public class DontDestroy : MonoBehaviour
     //Trigger Objects
     public bool ShowTriggerobj1 = true;
     public bool ShowTriggerobj2 = true;
+
+    //messages
+    public bool ShowKeyMessage = true;
+    public bool ShowToolMessage = true;
+    
     public static DontDestroy instance;
     void Start(){
         if (instance != null){
