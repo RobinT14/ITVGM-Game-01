@@ -30,7 +30,7 @@ public class OpenVent : MonoBehaviour
 
         //als je message had geactiveerd voor de memory
         //dan moet message weer tezien zijn na de mamory
-        if (dontdestroyinfo.VentNoticed && dontdestroyinfo.ShowKeyMessage){
+        if (dontdestroyinfo.VentNoticed && dontdestroyinfo.ShowToolMessage){
             ObjectiveMessage.SetActive(true);
         }
     }
