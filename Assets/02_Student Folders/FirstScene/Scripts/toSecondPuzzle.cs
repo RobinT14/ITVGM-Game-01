@@ -34,7 +34,6 @@ public class toSecondPuzzle : MonoBehaviour
         
         if (dontdestroyinfo.ShowTriggerobj2)
         {
-        // Debug.Log("switch!");
             dontdestroyinfo.ShowTriggerobj2 = false;
             dontdestroyinfo.SavePosition();
             SceneManager.LoadScene("Puzzle2");

@@ -5,16 +5,19 @@ using UnityEngine.SceneManagement;
 
 public class toFirstPuzzle : MonoBehaviour
 {
+    // transportation location
     private bool startgame = true;
     GameObject PositionPlayer;
     public DontDestroy dontdestroyinfo;
+
+    // animation variables
     public Animator animator;
     // public string levelToLoad = null;
     public string chosenAnimation = null;
 
     void Start()
     {
-
+        // source = GetComponent<AudioSource>();
     }
 
     void Update()
@@ -28,18 +31,16 @@ public class toFirstPuzzle : MonoBehaviour
 
         if (!dontdestroyinfo.ShowTriggerobj1)
         {
-
             Destroy(gameObject);
         }
     }
     void OnTriggerEnter(Collider other)
     {
-
         if (dontdestroyinfo.ShowTriggerobj1)
         {
-            // Debug.Log("switch!");
             dontdestroyinfo.ShowTriggerobj1 = false;
             dontdestroyinfo.SavePosition();
+
             FadeToLevel(); //levelToLoad
         }
     }
@@ -48,6 +49,7 @@ public class toFirstPuzzle : MonoBehaviour
     {
         // levelToLoad = levelName;
         animator.SetTrigger(chosenAnimation);
+        Debug.Log("Activated!");
         //OnFadeComplete();
     }
 
