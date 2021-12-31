@@ -49,7 +49,7 @@ public class toFirstPuzzle : MonoBehaviour
     {
         // levelToLoad = levelName;
         animator.SetTrigger(chosenAnimation);
-        Debug.Log("Activated!");
+        Debug.Log("Activated animation!");
         //OnFadeComplete();
     }
 

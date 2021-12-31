@@ -28,8 +28,11 @@ public class firstPuzzleGo : MonoBehaviour
         {
             dontdestroyinfo.ShowTriggerobj1 = false;
             SceneManager.LoadScene("Puzzle1");
+            Debug.Log("Succesfully loaded puzzle 1");
         }
         // reachpoint1.GetComponent<toFirstPuzzle>().OnFadeComplete();
         // Destroy(reachpoint1);
+
+        Debug.Log("after if");
     }
 }
