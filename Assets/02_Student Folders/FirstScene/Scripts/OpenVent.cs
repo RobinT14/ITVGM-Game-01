@@ -10,6 +10,11 @@ public class OpenVent : MonoBehaviour
     //dont destroy info zodat deur open blijft staan na memories
     public GameObject PlayerPositionObject;
     DontDestroy dontdestroyinfo;
+
+    //voor audio en objective message
+    public bool DoorNoticed = false;
+    public GameObject ObjectiveMessage;
+
     public Transform Vent;
     public float speed = 2f;
     public Collider triggerZone;
@@ -46,6 +51,12 @@ public class OpenVent : MonoBehaviour
         if (!locked)
         {
             UnlockDoor();
+        }
+        //als de speler geen sleutel heeft moet message komen dat die sleutel moet zoeken
+        else if (locked && !DoorNoticed && dontdestroyinfo.ShowToolMessage){
+            //insert audio fragment bryan eens in de zoveel keer dat die de trigger tegen komt
+            ObjectiveMessage.SetActive(true);
+            DoorNoticed = true;
         }
     }
 
