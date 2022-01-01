@@ -9,9 +9,6 @@ EditorBuildSettings:
     path: Assets/02_Student Folders/StartScene/StartGame.unity
     guid: dcfb1414b8700504cb78e6290d3a1860
   - enabled: 1
-    path: Assets/02_Student Folders/Test/Test.unity
-    guid: 183c07a851c6b498cb90685d73a45eb8
-  - enabled: 1
     path: Assets/02_Student Folders/FirstScene/Scene1.unity
     guid: 1e21eabad9d5397469262ce6eea4f108
   - enabled: 1
@@ -23,7 +20,4 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/02_Student Folders/Credits/Credits.unity
     guid: f57d80a9131ba0e4b9250da07b1a06a8
-  - enabled: 1
-    path: Assets/01_Menu/MainMenuScene.unity
-    guid: 0ffac6132adb54714954003a60f4f424
   m_configObjects: {}
