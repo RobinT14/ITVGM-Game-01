@@ -18,7 +18,7 @@ public OpenVent vent;
     // Update is called once per frame
     void Update()
     {
-        if(!vent.isClosed) 
+        if(!vent.isClosed)  
         {
             thePlan.GetComponent<Canvas> ().enabled = true;
         }
