@@ -6,6 +6,7 @@ public class OpenLockedDoor : MonoBehaviour
 {
     public bool locked = true;
     public bool isClosed = true;
+    public AudioSource soundSource = null;
 
     //dont destroy info zodat deur open blijft staan na memories
     public GameObject PlayerPositionObject;
@@ -45,7 +46,6 @@ public class OpenLockedDoor : MonoBehaviour
         else if (!isClosed && Door.position.z <= 31.5f && dontdestroyinfo.ShowTriggerobj2){
             Door.Translate(Vector3.forward * Time.deltaTime * speed);
         }
-
     }
 
     void OnTriggerEnter (Collider other)
@@ -65,6 +65,7 @@ public class OpenLockedDoor : MonoBehaviour
 
     void UnlockDoor(){
         isClosed = false;
+        soundSource.Play();
         Debug.Log("Door should be opening now");
         //yield return new WaitForSeconds(8.4f);
     }

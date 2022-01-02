@@ -6,6 +6,7 @@ public class OpenVent : MonoBehaviour
 {
     public bool locked = true;
     public bool isClosed = true;
+    public AudioSource soundSource = null;
 
     //dont destroy info zodat deur open blijft staan na memories
     public GameObject PlayerPositionObject;
@@ -68,7 +69,7 @@ public class OpenVent : MonoBehaviour
 
     void UnlockDoor(){
         isClosed = false;
-        
+        soundSource.Play();
         //yield return new WaitForSeconds(8.4f);
     }
 
