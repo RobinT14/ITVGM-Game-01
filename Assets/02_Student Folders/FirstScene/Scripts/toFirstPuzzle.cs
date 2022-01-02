@@ -12,7 +12,6 @@ public class toFirstPuzzle : MonoBehaviour
 
     // animation variables
     public Animator animator;
-    // public string levelToLoad = null;
     public string chosenAnimation = null;
 
     void Start(){}
@@ -36,20 +35,14 @@ public class toFirstPuzzle : MonoBehaviour
         if (dontdestroyinfo.ShowTriggerobj1)
         {
             dontdestroyinfo.SavePosition();
-            FadeToLevel(); //levelToLoad
+            FadeToLevel();
         }
     }
 
-    public void FadeToLevel() // string levelName
+    public void FadeToLevel()
     {
-        // levelToLoad = levelName;
         animator.SetTrigger(chosenAnimation);
         Debug.Log("Activated animation!");
-        //OnFadeComplete();
     }
 
-    //public void OnFadeComplete()
-    //{
-    //    SceneManager.LoadScene(levelToLoad);
-    //}
 }

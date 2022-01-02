@@ -5,11 +5,9 @@ using UnityEngine.SceneManagement;
 
 public class toCredits : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    // animation variables
+    public Animator animator;
+    public string chosenAnimation = null;
 
     // Update is called once per frame
     void Update()
@@ -19,6 +17,8 @@ public class toCredits : MonoBehaviour
 
     public void OnTriggerEnter(Collider other)
     {
-        SceneManager.LoadScene("Credits");
+        animator.SetTrigger(chosenAnimation);
+        Debug.Log("Activated credits");
     }
+
 }
