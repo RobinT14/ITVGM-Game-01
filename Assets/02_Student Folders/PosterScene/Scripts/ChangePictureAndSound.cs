@@ -12,6 +12,9 @@ public class ChangePictureAndSound : MonoBehaviour
 	GameObject PositionPlayer;
     public DontDestroy dontdestroyinfo;
 
+	// animation variables
+	public Animator animator;
+	public string chosenAnimation = null;
 
 	void Start()
 	{
@@ -29,10 +32,11 @@ public class ChangePictureAndSound : MonoBehaviour
 		GameObject.Find("Canvas01").SetActive(false);
 		yield return new WaitForSeconds(Canvas02);
 
+		Debug.Log("Hey, can you see me?");
 		dontdestroyinfo.ShowPosterTrigger = false;
-		SceneManager.LoadScene("Scene1");
-		// GameObject.Find("Canvas02").SetActive(false);
-	}
+        animator.SetTrigger(chosenAnimation);
+        // GameObject.Find("Canvas02").SetActive(false);
+    }
 
 	// Update is called once per frame
 	void Update()
