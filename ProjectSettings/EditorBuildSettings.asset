@@ -20,4 +20,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/02_Student Folders/Credits/Credits.unity
     guid: f57d80a9131ba0e4b9250da07b1a06a8
+  - enabled: 1
+    path: Assets/02_Student Folders/PosterScene/Poster.unity
+    guid: 51757796a3bd2420e80d7788418b464e
   m_configObjects: {}

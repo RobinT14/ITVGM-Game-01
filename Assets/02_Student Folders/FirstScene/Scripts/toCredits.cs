@@ -9,16 +9,9 @@ public class toCredits : MonoBehaviour
     public Animator animator;
     public string chosenAnimation = null;
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
     public void OnTriggerEnter(Collider other)
     {
         animator.SetTrigger(chosenAnimation);
         Debug.Log("Activated credits");
     }
-
 }

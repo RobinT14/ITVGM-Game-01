@@ -7,15 +7,8 @@ public class SecondPuzzleGO : MonoBehaviour
 {
     public AudioSource source = null;
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
     public void AudioStart()
     {
-        //source = GetComponent<AudioSource>();
         source.Play(0);
     }
 

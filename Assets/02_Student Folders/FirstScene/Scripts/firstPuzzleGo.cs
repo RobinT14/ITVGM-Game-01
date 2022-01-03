@@ -5,10 +5,8 @@ using UnityEngine.SceneManagement;
 
 public class firstPuzzleGo : MonoBehaviour
 {
-    // public GameObject reachpoint1 = null;
-    //myObject.GetComponent<MyScript>().MyFunction();
     public AudioSource source = null;
-     GameObject PositionPlayer;
+    GameObject PositionPlayer;
     public DontDestroy dontdestroyinfo;
 
     void start(){
@@ -18,7 +16,6 @@ public class firstPuzzleGo : MonoBehaviour
 
     public void AudioStart()
     {
-        //source = GetComponent<AudioSource>();
         source.Play(0);
     }
 
@@ -30,9 +27,5 @@ public class firstPuzzleGo : MonoBehaviour
             SceneManager.LoadScene("Puzzle1");
             Debug.Log("Succesfully loaded puzzle 1");
         }
-        // reachpoint1.GetComponent<toFirstPuzzle>().OnFadeComplete();
-        // Destroy(reachpoint1);
-
-        Debug.Log("after if");
     }
 }

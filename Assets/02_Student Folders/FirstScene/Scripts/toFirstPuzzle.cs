@@ -35,14 +35,8 @@ public class toFirstPuzzle : MonoBehaviour
         if (dontdestroyinfo.ShowTriggerobj1)
         {
             dontdestroyinfo.SavePosition();
-            FadeToLevel();
+            animator.SetTrigger(chosenAnimation);
+            Debug.Log("Activated animation!");
         }
     }
-
-    public void FadeToLevel()
-    {
-        animator.SetTrigger(chosenAnimation);
-        Debug.Log("Activated animation!");
-    }
-
 }
