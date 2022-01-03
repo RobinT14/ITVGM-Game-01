@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
+
 
 public class ChangePictureAndSound : MonoBehaviour
 {
@@ -12,9 +14,12 @@ public class ChangePictureAndSound : MonoBehaviour
 
 	IEnumerator ExampleCoroutine()
 	{
-		yield return new WaitForSeconds(5);
-		GameObject.Find("Canvas02").active = true;
-		GameObject.Find("Canvas01").active = false;
+		yield return new WaitForSeconds(2);
+		GameObject.Find("Canvas02").SetActive(true);
+		GameObject.Find("Canvas01").SetActive(false);
+		yield return new WaitForSeconds(14);
+		SceneManager.LoadScene("Scene1");
+		// GameObject.Find("Canvas02").SetActive(false);
 	}
 
 	// Update is called once per frame
