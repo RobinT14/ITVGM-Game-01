@@ -10,6 +10,9 @@ public class OpenLockedDoor : MonoBehaviour
     //Audio voor soundeffect openen
     public AudioSource soundSource = null;
 
+    //audio van abandoned trigger
+    public AbandonedAudioTrigger AbandonedSource;
+
     //audio voor audiofragment
     public AudioSource LockedDoorAudio = null;
 
@@ -66,8 +69,8 @@ public class OpenLockedDoor : MonoBehaviour
             ObjectiveMessage.SetActive(true);
             dontdestroyinfo.DoorNoticed = true;
         }
-        //als de vent nog locked is en de audio niet al speelt moet er een audio komtn
-        if (!LockedDoorAudio.isPlaying && locked){
+        //als de vent nog locked is en er niet al een audio peelt moet er een audio komt
+        if (!LockedDoorAudio.isPlaying && locked && !AbandonedSource.AbandonedAudioSource.isPlaying){
                 LockedDoorAudio.Play();
             }
     }
