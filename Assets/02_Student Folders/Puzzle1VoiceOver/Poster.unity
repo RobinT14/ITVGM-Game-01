@@ -293,7 +293,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 9310d8030415d4298aebfc701bb59402, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 64e715a7bd0e4438ab2f13b994cbb686, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1
@@ -391,7 +391,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4766f517ba847411d85cfb7ca59b676e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Canvas01: 2
+  Canvas01: 22
   Canvas02: 14
 --- !u!850595691 &1210696554
 LightingSettings:
@@ -512,7 +512,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Texture: {fileID: 2800000, guid: 6e844d1499eb82f41a03a09aaa0f5d17, type: 3}
+  m_Texture: {fileID: 2800000, guid: 909a18225ce85e64b86abfc0623879c5, type: 3}
   m_UVRect:
     serializedVersion: 2
     x: 0
@@ -685,7 +685,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Texture: {fileID: 2800000, guid: 50c9308bdc08af6469c548b0bdfd5349, type: 3}
+  m_Texture: {fileID: 2800000, guid: 148afccfce57c8b488e182e83390aa27, type: 3}
   m_UVRect:
     serializedVersion: 2
     x: 0
