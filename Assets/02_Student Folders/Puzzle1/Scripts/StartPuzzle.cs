@@ -6,38 +6,14 @@ using UnityEngine.UI;
 public class StartPuzzle : MonoBehaviour
 {
     public Collider trigger;
-
     public Image image;    
-//    public GameObject object;
 
-    // Start is called before the first frame update
-    void Start()
+    void OnTriggerEnter(Collider trigger)
     {
-        
+        StartCoroutine(FadeImage(true));
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-     /*   if(Input.GetMouseButtonDown(0))
-        {
-         
-        }*/
-    }
-
-//    void OnMouseDown() 
-void OnTriggerEnter(Collider trigger)
-    {
-/*
-     Color temp = image.color;
- temp.a=1f;
- image.color = temp; 
-*/
-StartCoroutine(FadeImage(true));
-     
-    }
-
-IEnumerator FadeImage(bool fadeAway)
+    IEnumerator FadeImage(bool fadeAway)
     {
         GameObject player = GameObject.Find("Player");
 
@@ -59,14 +35,14 @@ IEnumerator FadeImage(bool fadeAway)
                 temp.a=i;
                 image.color = temp; 
                 player.transform.position = new Vector3(0,0,-8);
-player.GetComponent<PlayerCharacterController>().gravityDownForce = 0f;
 
-player.GetComponent<PlayerCharacterController>().maxSpeedOnGround = 0f;
-player.GetComponent<PlayerCharacterController>().movementSharpnessOnGround = 0;
-player.GetComponent<PlayerCharacterController>().maxSpeedCrouchedRatio = 0;
-player.GetComponent<PlayerCharacterController>().maxSpeedInAir = 0;
-player.GetComponent<PlayerCharacterController>().sprintSpeedModifier = 0;
-player.GetComponent<PlayerCharacterController>().killHeight = 0;
+                player.GetComponent<PlayerCharacterController>().gravityDownForce = 0f;
+                player.GetComponent<PlayerCharacterController>().maxSpeedOnGround = 0f;
+                player.GetComponent<PlayerCharacterController>().movementSharpnessOnGround = 0;
+                player.GetComponent<PlayerCharacterController>().maxSpeedCrouchedRatio = 0;
+                player.GetComponent<PlayerCharacterController>().maxSpeedInAir = 0;
+                player.GetComponent<PlayerCharacterController>().sprintSpeedModifier = 0;
+                player.GetComponent<PlayerCharacterController>().killHeight = 0;
 
                 yield return null;
             }
@@ -74,8 +50,6 @@ player.GetComponent<PlayerCharacterController>().killHeight = 0;
         // fade out
         else
         {
-
-Debug.Log("else");
             // loop over 1 second
             for (float i = 0; i <= 1; i += Time.deltaTime)
             {
@@ -86,5 +60,4 @@ Debug.Log("else");
             }
         }
     }
-
 }
