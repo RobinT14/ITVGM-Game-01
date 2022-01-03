@@ -35,6 +35,7 @@ public class toSecondPuzzle : MonoBehaviour
         if (dontdestroyinfo.ShowTriggerobj2)
         {
             dontdestroyinfo.ShowTriggerobj2 = false;
+            dontdestroyinfo.ToolAudio = true;
             dontdestroyinfo.SavePosition();
             animator.SetTrigger(chosenAnimation);
         }

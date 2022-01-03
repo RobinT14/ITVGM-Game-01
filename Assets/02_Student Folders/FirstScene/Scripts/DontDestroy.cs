@@ -25,7 +25,8 @@ public class DontDestroy : MonoBehaviour
 
     //audios
     public bool WhereAmI = true;
-    public bool VentAudio = true;
+    public bool KeyAudio = false;
+    public bool ToolAudio = false;
     
     public static DontDestroy instance;
     void Start(){

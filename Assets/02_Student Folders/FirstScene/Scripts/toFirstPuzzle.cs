@@ -35,6 +35,7 @@ public class toFirstPuzzle : MonoBehaviour
         if (dontdestroyinfo.ShowTriggerobj1)
         {
             dontdestroyinfo.SavePosition();
+            dontdestroyinfo.KeyAudio = true;
             animator.SetTrigger(chosenAnimation);
             Debug.Log("Activated animation!");
         }
