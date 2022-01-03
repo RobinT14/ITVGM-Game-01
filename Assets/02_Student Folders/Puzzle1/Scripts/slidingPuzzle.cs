@@ -22,11 +22,18 @@ public class slidingPuzzle : MonoBehaviour
 
     int shuffleDecreaser;
 
+    //dontdestroy info
+    GameObject PositionPlayer;
+    public DontDestroy dontdestroyinfo;
+
     // Start is called before the first frame update
     void Start()
     {                
         PuzzleElements();
         Help();
+
+        PositionPlayer = GameObject.Find("PlayerPosition");
+        dontdestroyinfo = PositionPlayer.GetComponent<DontDestroy>();
     }
 
     void PuzzleElements()
@@ -117,6 +124,7 @@ public class slidingPuzzle : MonoBehaviour
         Debug.Log("You are a winner!"); 
         ShowImage();
 	//statische beelden
+    dontdestroyinfo.ShowTriggerobj1 = false;
 	SceneManager.LoadScene("Scene1");
     }
 

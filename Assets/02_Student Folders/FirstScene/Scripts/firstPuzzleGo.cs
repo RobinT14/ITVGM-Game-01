@@ -23,7 +23,7 @@ public class firstPuzzleGo : MonoBehaviour
     {
         if (dontdestroyinfo.ShowTriggerobj1)
         {
-            dontdestroyinfo.ShowTriggerobj1 = false;
+            //dontdestroyinfo.ShowTriggerobj1 = false;
             SceneManager.LoadScene("Puzzle1");
             Debug.Log("Succesfully loaded puzzle 1");
         }
