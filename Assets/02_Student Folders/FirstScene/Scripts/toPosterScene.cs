@@ -14,25 +14,22 @@ public class toPosterScene : MonoBehaviour
 	public Animator animator;
 	public string chosenAnimation = null;
 
-	void Start() { }
+	void Start() { 
+		PositionPlayer = GameObject.Find("PlayerPosition");
+		dontdestroyinfo = PositionPlayer.GetComponent<DontDestroy>();
+		startgame = false;
+	}
 
 	void Update()
 	{
-		if (startgame)
-		{
-			PositionPlayer = GameObject.Find("PlayerPosition");
-			dontdestroyinfo = PositionPlayer.GetComponent<DontDestroy>();
-			startgame = false;
-		}
-
-		if (!dontdestroyinfo.ShowTriggerobj1)
+		if (!dontdestroyinfo.ShowPosterTrigger)
 		{
 			Destroy(gameObject);
 		}
 	}
 	void OnTriggerEnter(Collider other)
 	{
-		if (dontdestroyinfo.ShowTriggerobj1)
+		if (dontdestroyinfo.ShowPosterTrigger)
 		{
 			dontdestroyinfo.SavePosition();
 			animator.SetTrigger(chosenAnimation);

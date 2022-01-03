@@ -13,6 +13,7 @@ public class DontDestroy : MonoBehaviour
     // public Vector3 PlayerPosition = new Vector3(-12.44f, -11.25f, 15.35f);
     
     //Trigger Objects
+    public bool ShowPosterTrigger = true;
     public bool ShowTriggerobj1 = true;
     public bool ShowTriggerobj2 = true;
 
