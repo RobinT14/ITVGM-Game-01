@@ -6,7 +6,12 @@ public class OpenLockedDoor : MonoBehaviour
 {
     public bool locked = true;
     public bool isClosed = true;
+
+    //Audio voor soundeffect openen
     public AudioSource soundSource = null;
+
+    //audio voor audiofragment
+    public AudioSource LockedDoorAudio = null;
 
     //dont destroy info zodat deur open blijft staan na memories
     public GameObject PlayerPositionObject;
@@ -61,6 +66,10 @@ public class OpenLockedDoor : MonoBehaviour
             ObjectiveMessage.SetActive(true);
             dontdestroyinfo.DoorNoticed = true;
         }
+        //als de vent nog locked is en de audio niet al speelt moet er een audio komtn
+        if (!LockedDoorAudio.isPlaying && locked){
+                LockedDoorAudio.Play();
+            }
     }
 
     void UnlockDoor(){

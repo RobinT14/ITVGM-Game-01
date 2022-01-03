@@ -22,6 +22,10 @@ public class DontDestroy : MonoBehaviour
     public bool DoorNoticed = false;
     public bool ShowToolMessage = true;
     public bool VentNoticed = false;
+
+    //audios
+    public bool WhereAmI = true;
+    public bool VentAudio = true;
     
     public static DontDestroy instance;
     void Start(){

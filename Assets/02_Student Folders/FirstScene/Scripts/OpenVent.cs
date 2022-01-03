@@ -6,7 +6,12 @@ public class OpenVent : MonoBehaviour
 {
     public bool locked = true;
     public bool isClosed = true;
+
+    //Voor soundeffect van het openen
     public AudioSource soundSource = null;
+    
+    //Voor audio clip van Tunnel under here
+    public AudioSource TunnelAudio = null;
 
     //dont destroy info zodat deur open blijft staan na memories
     public GameObject PlayerPositionObject;
@@ -60,11 +65,14 @@ public class OpenVent : MonoBehaviour
             UnlockDoor();
         }
         //als de speler geen sleutel heeft moet message komen dat die sleutel moet zoeken
-        else if (locked && !dontdestroyinfo.VentNoticed && dontdestroyinfo.ShowToolMessage){
-            //insert audio fragment bryan eens in de zoveel keer dat die de trigger tegen komt
+        else if (locked && !dontdestroyinfo.VentNoticed && dontdestroyinfo.ShowToolMessage){        
             ObjectiveMessage.SetActive(true);
             dontdestroyinfo.VentNoticed = true;
         }
+        //als de vent nog locked is en de audio niet al speelt moet er een audio komtn
+        if (!TunnelAudio.isPlaying && locked){
+                TunnelAudio.Play();
+            }
     }
 
     void UnlockDoor(){
