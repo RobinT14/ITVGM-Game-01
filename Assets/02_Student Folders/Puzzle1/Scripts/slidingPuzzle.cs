@@ -125,7 +125,7 @@ public class slidingPuzzle : MonoBehaviour
         ShowImage();
 	//statische beelden
     dontdestroyinfo.ShowTriggerobj1 = false;
-	SceneManager.LoadScene("Scene1");
+	SceneManager.LoadScene("Puzzle1Memory");
     }
 
 

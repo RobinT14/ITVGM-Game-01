@@ -33,7 +33,7 @@ public class Puzzler : MonoBehaviour
         if(winningCombination == numberOfPieces) 
         {
             Debug.Log("You are a winner!");
-            SceneManager.LoadScene("Scene1");
+            SceneManager.LoadScene("Puzzle2Memory");
         }
     }
 

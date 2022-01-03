@@ -23,4 +23,10 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/02_Student Folders/PosterScene/Poster.unity
     guid: 51757796a3bd2420e80d7788418b464e
+  - enabled: 1
+    path: Assets/02_Student Folders/Puzzle1VoiceOver/Puzzle1Memory.unity
+    guid: a91f7fbf5c8b948b49677c304aa00fc3
+  - enabled: 1
+    path: Assets/02_Student Folders/Puzzle2VoiceOver/Puzzle2Memory.unity
+    guid: d319d7da6a2474dd1a0a50ff3beb0dcb
   m_configObjects: {}
