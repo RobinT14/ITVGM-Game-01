@@ -8,16 +8,11 @@ public class slidingPuzzle : MonoBehaviour
 {
     public Texture2D image;
     public const int numberOfQuads = 4;
-    public int timesToShuffle = 1;
     slidedImage noQuad;
     Vector2 startingQuad = new Vector2(numberOfQuads - 1, numberOfQuads - 1);
 
     slidedImage[,] numberedQuads;
 
-    public static Vector2Int down;
-    public static Vector2Int up;
-    public static Vector2Int left;
-    public static Vector2Int right;
     Vector3[,] starter;
 
     int shuffleDecreaser;
@@ -30,7 +25,7 @@ public class slidingPuzzle : MonoBehaviour
     void Start()
     {                
         PuzzleElements();
-        Help();
+        amounOfShuffles();
 
         PositionPlayer = GameObject.Find("PlayerPosition");
         dontdestroyinfo = PositionPlayer.GetComponent<DontDestroy>();
@@ -68,16 +63,15 @@ public class slidingPuzzle : MonoBehaviour
     {
         if ((quad.transform.position - noQuad.transform.position).sqrMagnitude == 1)
         {
-            Vector2 help = noQuad.transform.position;
+            Vector2 emptyQuad = noQuad.transform.position;
             noQuad.transform.position = quad.transform.position;
-            quad.transform.position = help;
+            quad.transform.position = emptyQuad;
             isSolved();
         }
     }
 
-    void Help()
+    void amounOfShuffles()
     {
-        shuffleDecreaser = timesToShuffle;
         for (int i = 0; i < 10; i++)
         {
             Shuffler();
@@ -90,22 +84,22 @@ public class slidingPuzzle : MonoBehaviour
         Vector2 right = new Vector2(1, 0);
         Vector2 above = new Vector2(0, 1);
         Vector2 below = new Vector2(0, -1);
-        Vector2[] neighbours = { left, right, above, below }; //Is ok
-        Vector2 help = new Vector2(noQuad.transform.position.x, noQuad.transform.position.y); //Is ok with noQuad coords
+        Vector2[] neighbours = { left, right, above, below };
+        Vector2 currentEmpty = new Vector2(noQuad.transform.position.x, noQuad.transform.position.y);
 
         int random = Random.Range(0, neighbours.Length);
 
         for (int i = 0; i < neighbours.Length; i++)
         {
             Vector2 neighbour = neighbours[(random + i) % neighbours.Length];
-            Vector2 moveQuad = help + neighbour; //current empty quad + offset
+            Vector2 moveQuad = currentEmpty + neighbour; //current empty quad + offset
             int xCoord = (int)Mathf.Ceil(moveQuad.x);
             int yCoord = (int)Mathf.Ceil(moveQuad.y);
 
             if (moveQuad.x >= 0 && moveQuad.x < numberOfQuads &&
                 moveQuad.y >= 0 && moveQuad.y < numberOfQuads)
             {
-                changeQuadPosition(numberedQuads[xCoord, yCoord]); //input 0,1,2,3 (positions)
+                changeQuadPosition(numberedQuads[xCoord, yCoord]);
                 break;
             }
         }
@@ -124,7 +118,7 @@ public class slidingPuzzle : MonoBehaviour
         Debug.Log("You are a winner!"); 
         ShowImage();
 	//statische beelden
-    dontdestroyinfo.ShowTriggerobj1 = false;
+        dontdestroyinfo.ShowTriggerobj1 = false;
 	SceneManager.LoadScene("Puzzle1Memory");
     }
 

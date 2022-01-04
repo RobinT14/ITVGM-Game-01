@@ -44,7 +44,6 @@ public class Puzzle2Script : MonoBehaviour
         }
     }
 
-    // Update is called once per frame
     private void OnMouseDown()
     {
         transform.Rotate(new Vector3(0,0,90f)); 

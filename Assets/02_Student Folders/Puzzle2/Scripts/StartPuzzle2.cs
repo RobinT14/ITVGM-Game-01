@@ -11,55 +11,40 @@ public class StartPuzzle2 : MonoBehaviour
 
     void OnTriggerEnter(Collider trigger)
     {
-        StartCoroutine(FadeImage(true));
+        StartCoroutine(FadeImage());
     }
 
-    IEnumerator FadeImage(bool fadeAway)
+    IEnumerator FadeImage()
     {
         GameObject player = GameObject.Find("Player");
 
-        if (fadeAway)
+        // loop over 1 second
+        for (float i = 0; i <= 1; i += Time.deltaTime)
         {
-            // loop over 1 second
-            for (float i = 0; i <= 1; i += Time.deltaTime)
-            {
-                Color temp = image.color;
-                temp.a=i;
-                image.color = temp; 
-                yield return null;
-            }
-            // loop over 1 second backwards
-            for (float i = 1; i >= 0; i -= Time.deltaTime)
-            {
-                Color temp = image.color;
-                temp.a=i;
-                image.color = temp;
- 
-                player.transform.position = new Vector3(0,6,-18);
-                player.transform.rotation = Quaternion.Euler(0,0,0);
-                player.GetComponent<PlayerCharacterController>().gravityDownForce = 0f;
-                player.GetComponent<PlayerCharacterController>().maxSpeedOnGround = 0f;
-                player.GetComponent<PlayerCharacterController>().movementSharpnessOnGround = 0;
-                player.GetComponent<PlayerCharacterController>().maxSpeedCrouchedRatio = 0;
-                player.GetComponent<PlayerCharacterController>().maxSpeedInAir = 0;
-                player.GetComponent<PlayerCharacterController>().sprintSpeedModifier = 0;
-                player.GetComponent<PlayerCharacterController>().killHeight = 0;
-
-                yield return null;
-            }
+            Color changingColor = image.color;
+            changingColor.a=i;
+            image.color = changingColor; 
+            yield return null;
         }
-        // fade out
-        else
+
+        // loop over 1 second backwards
+        for (float i = 1; i >= 0; i -= Time.deltaTime)
         {
-            // loop over 1 second
-            for (float i = 0; i <= 1; i += Time.deltaTime)
-            {
-                Color temp = image.color;
-                temp.a=i;
-                image.color = temp; 
-                yield return null;
-            }
+            Color changingColor = image.color;
+            changingColor.a=i;
+            image.color = changingColor;
+ 
+            player.transform.position = new Vector3(0,6,-18);
+            player.transform.rotation = Quaternion.Euler(0,0,0);
+            player.GetComponent<PlayerCharacterController>().gravityDownForce = 0f;
+            player.GetComponent<PlayerCharacterController>().maxSpeedOnGround = 0f;
+            player.GetComponent<PlayerCharacterController>().movementSharpnessOnGround = 0;
+            player.GetComponent<PlayerCharacterController>().maxSpeedCrouchedRatio = 0;
+            player.GetComponent<PlayerCharacterController>().maxSpeedInAir = 0;
+            player.GetComponent<PlayerCharacterController>().sprintSpeedModifier = 0;
+            player.GetComponent<PlayerCharacterController>().killHeight = 0;
+
+            yield return null;
         }
     }
-
 }
