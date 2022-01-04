@@ -3245,6 +3245,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   image: {fileID: 2800000, guid: f814bed806c66534c9f4b42fff67ba7f, type: 3}
   timesToShuffle: 1
+  dontdestroyinfo: {fileID: 0}
 --- !u!4 &192672790
 Transform:
   m_ObjectHideFlags: 0
@@ -19701,6 +19702,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   image: {fileID: 2800000, guid: 4e7ce1f005946ff4aab1a391f8b9484d, type: 3}
   timesToShuffle: 1
+  dontdestroyinfo: {fileID: 0}
 --- !u!43 &1123330902
 Mesh:
   m_ObjectHideFlags: 0
@@ -35927,6 +35929,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_AnchoredPosition.y
       value: -192.55
+      objectReference: {fileID: 0}
+    - target: {fileID: 8085450290447914041, guid: c996b53e9f849234393d1e90f68d1679,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 50
       objectReference: {fileID: 0}
     - target: {fileID: 8250413824482692630, guid: c996b53e9f849234393d1e90f68d1679,
         type: 3}
