@@ -6,6 +6,7 @@ public class OpenVent : MonoBehaviour
 {
     public bool locked = true;
     public bool isClosed = true;
+    bool hasMadeSound = false;
 
     //Voor soundeffect van het openen
     public AudioSource soundSource = null;
@@ -77,7 +78,11 @@ public class OpenVent : MonoBehaviour
 
     void UnlockDoor(){
         isClosed = false;
-        soundSource.Play();
+        if (!hasMadeSound)
+        {
+            soundSource.Play();
+            hasMadeSound = true;
+        }
         //yield return new WaitForSeconds(8.4f);
     }
 
