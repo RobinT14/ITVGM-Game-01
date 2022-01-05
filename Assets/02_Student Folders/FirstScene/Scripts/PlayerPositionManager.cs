@@ -48,6 +48,8 @@ public class PlayerPositionManager : MonoBehaviour
         //positie gaat naar opgeslagen positie
         positionVector = SavedPosition.PlayerPosition - new Vector3 (0,0,1);
         Player.position = positionVector;
+Debug.Log("sp: " + SavedPosition.PlayerPosition);
+Debug.Log("pp: " + Player.position);
         //Player.position = new Vector3(-22.12f, -1.22f, 28.61f);
         //Debug.Log("Position player");
     }

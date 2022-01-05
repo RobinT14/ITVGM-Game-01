@@ -9,7 +9,8 @@ public class DontDestroy : MonoBehaviour
     public Transform Player;
 
     //starting position
-    public Vector3 PlayerPosition = new Vector3(-3.73f, -6.24f, 20.36f);
+    //public Vector3 PlayerPosition = new Vector3(-3.73f, -6.24f, 20.36f);
+    public Vector3 PlayerPosition;
     // public Vector3 PlayerPosition = new Vector3(-12.44f, -11.25f, 15.35f);
     
     //Trigger Objects
@@ -30,6 +31,9 @@ public class DontDestroy : MonoBehaviour
     public bool AbandonedAudio = true;
     public static DontDestroy instance;
     void Start(){
+
+PlayerPosition = new Vector3(-3.73f, -6.24f, 20.36f);
+
         if (instance != null){
             Destroy(gameObject);
         }
