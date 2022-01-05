@@ -40,6 +40,9 @@ public class OpenVent : MonoBehaviour
         if (dontdestroyinfo.VentNoticed && dontdestroyinfo.ShowToolMessage){
             ObjectiveMessage.SetActive(true);
         }
+        else if(!dontdestroyinfo.ShowTriggerobj2 && dontdestroyinfo.VentLocked){
+            ObjectiveMessage.SetActive(true);
+        }
     }
 
     // Update is called once per frame
@@ -63,6 +66,7 @@ public class OpenVent : MonoBehaviour
         //als speler sleutel heeft kan die door unlocken
         if (!locked)
         {
+            
             UnlockDoor();
         }
         //als de speler geen sleutel heeft moet message komen dat die sleutel moet zoeken
@@ -71,15 +75,16 @@ public class OpenVent : MonoBehaviour
             dontdestroyinfo.VentNoticed = true;
         }
         //als de vent nog locked is en de audio niet al speelt moet er een audio komtn
-        if (!TunnelAudio.isPlaying && locked){
+        if (!TunnelAudio.isPlaying && locked && dontdestroyinfo.VentLocked){
                 TunnelAudio.Play();
             }
     }
 
     void UnlockDoor(){
         isClosed = false;
-        if (!hasMadeSound)
+        if (!hasMadeSound && dontdestroyinfo.VentLocked)
         {
+            dontdestroyinfo.VentLocked = false;
             soundSource.Play();
             hasMadeSound = true;
         }

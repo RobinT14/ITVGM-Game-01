@@ -30,9 +30,13 @@ public class DontDestroy : MonoBehaviour
     public bool ToolAudio = false;
     public bool AbandonedAudio = true;
     public static DontDestroy instance;
+
+    //locked doors
+    public bool DoorLocked = true;
+    public bool VentLocked = true;
     void Start(){
 
-PlayerPosition = new Vector3(-3.73f, -6.24f, 20.36f);
+        // PlayerPosition = new Vector3(-3.73f, -6.24f, 20.36f);
 
         if (instance != null){
             Destroy(gameObject);

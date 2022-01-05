@@ -39,7 +39,10 @@ public class OpenLockedDoor : MonoBehaviour
         //dan moet message weer tezien zijn na de mamory
         if (dontdestroyinfo.DoorNoticed && dontdestroyinfo.ShowKeyMessage){
             ObjectiveMessage.SetActive(true);
-        }
+        }//or the message needs to come after the first memory 
+        else if(!dontdestroyinfo.ShowTriggerobj1 && dontdestroyinfo.DoorLocked){
+            ObjectiveMessage.SetActive(true);
+        }   
     }
 
     // Update is called once per frame
@@ -60,26 +63,29 @@ public class OpenLockedDoor : MonoBehaviour
     {
         //als speler sleutel heeft kan die door unlocken
         if (!locked)
-        {
+        {        
             UnlockDoor();
         }
         //als de speler geen sleutel heeft moet message komen dat die sleutel moet zoeken
         else if (locked && !dontdestroyinfo.DoorNoticed && dontdestroyinfo.ShowKeyMessage){
-            //insert audio fragment bryan eens in de zoveel keer dat die de trigger tegen komt
             ObjectiveMessage.SetActive(true);
             dontdestroyinfo.DoorNoticed = true;
         }
-        //als de vent nog locked is en er niet al een audio peelt moet er een audio komt
-        if (!LockedDoorAudio.isPlaying && locked && !AbandonedSource.AbandonedAudioSource.isPlaying){
+        //als de vent nog locked is en er niet al een audio speelt moet er een audio komt
+        if (!LockedDoorAudio.isPlaying && locked && !AbandonedSource.AbandonedAudioSource.isPlaying && dontdestroyinfo.DoorLocked){
                 LockedDoorAudio.Play();
             }
     }
 
     void UnlockDoor(){
-        isClosed = false;
-        soundSource.Play();
-        Debug.Log("Door should be opening now");
-        //yield return new WaitForSeconds(8.4f);
+
+        if (dontdestroyinfo.DoorLocked){
+            dontdestroyinfo.DoorLocked = false;
+            isClosed = false;
+            soundSource.Play();
+            Debug.Log("Door should be opening now");
+            //yield return new WaitForSeconds(8.4f);
+        }
     }
 
 }
