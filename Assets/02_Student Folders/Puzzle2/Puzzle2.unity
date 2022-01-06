@@ -22831,6 +22831,11 @@ PrefabInstance:
         type: 3}
     - target: {fileID: 814417836257332542, guid: 761cdc9e4e883334cbdcea062d0befa7,
         type: 3}
+      propertyPath: landSFX
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 814417836257332542, guid: 761cdc9e4e883334cbdcea062d0befa7,
+        type: 3}
       propertyPath: jumpForce
       value: 0
       objectReference: {fileID: 0}
