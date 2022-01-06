@@ -10,6 +10,9 @@ public class AbandonedAudioTrigger : MonoBehaviour
     GameObject PositionPlayer;
     public DontDestroy dontdestroyinfo;
 
+    //audio van puzzle memory kan nog spelen
+    public AudioFragments MemoryAudio = null;
+
     public Collider TriggerZone;
 
 
@@ -27,7 +30,7 @@ public class AbandonedAudioTrigger : MonoBehaviour
     }
 
     void OnTriggerEnter(){
-        if (dontdestroyinfo.AbandonedAudio){
+        if (dontdestroyinfo.AbandonedAudio && !MemoryAudio.KeyAudio.isPlaying){
             AbandonedAudioSource.Play();
             dontdestroyinfo.AbandonedAudio = false;
         }
