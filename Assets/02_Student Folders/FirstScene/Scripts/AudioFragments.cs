@@ -5,7 +5,9 @@ using UnityEngine;
 public class AudioFragments : MonoBehaviour
 {
     public AudioSource WhereAmI = null;
+
     public AudioSource KeyAudio = null;
+
     public AudioSource ToolAudio = null;
 
     GameObject PositionPlayer;
@@ -15,25 +17,27 @@ public class AudioFragments : MonoBehaviour
         PositionPlayer = GameObject.Find("PlayerPosition");
         dontdestroyinfo = PositionPlayer.GetComponent<DontDestroy>();
 
+        //start of the game
         if (dontdestroyinfo.WhereAmI){
             playWhereAmI();
         }
+        //after first puzzle
         else if (dontdestroyinfo.KeyAudio){
             playKeyAudio();
         }
+        //after second puzzle
         else if (dontdestroyinfo.ToolAudio){
             playToolAudio();
         }
     }
 
-    // Update is called once per frame
     void playWhereAmI()
     {
         WhereAmI.Play();
         dontdestroyinfo.WhereAmI = false;
     }
     void playKeyAudio()
-    {
+    {   
         KeyAudio.Play();
         dontdestroyinfo.KeyAudio = false;
     }
