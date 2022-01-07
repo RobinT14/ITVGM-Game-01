@@ -5,8 +5,8 @@ Subject 01
 
 Description:
 Play our new game Subject 01 to unravel the story of the main character. 
-Subject 01 is a suspenseful game that offers you an exciting story and a challenging gameplay by combining two genres: puzzle and exploration. 
-Explore the building to find objects that trigger the character's memory, and solve the puzzlea to restore their memory. Eventually, you can find enough clues to escape the building.
+Subject 01 is a suspenseful game that offers you an exciting story and challenging gameplay by combining two genres: puzzle and exploration. 
+Explore the building to find objects that trigger the character's memory, and solve the puzzle to restore their memory. Eventually, you can find enough clues to escape the building.
 We hope you enjoy our game!
 
 Special thanks to:
